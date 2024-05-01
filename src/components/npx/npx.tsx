@@ -103,15 +103,27 @@ const NpxScale: React.FC<NpxScaleProps> = (props) => {
       onClick={() => handleButtonClick(index)}
       disabled={loadingIndex === index}
     >
-      {loadingIndex === index ? (
-        <div style={{ 
-          border: '3px solid rgba(0, 0, 0, 0.1)',
-          borderTop: '3px solid #007bff',
-          borderRadius: '50%',
-          width: '12px',
-          height: '12px',
-          animation: 'spin 1s linear infinite'
-        }}></div>
+       {loadingIndex === index ? (
+                 <>
+                <style scoped>
+                {`
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+            
+                    .spinner {
+                        border: 3px solid rgba(0, 0, 0, 0.1);
+                        border-top: 3px solid #007bff;
+                        border-radius: 50%;
+                        width: 12px;
+                        height: 12px;
+                        animation: spin 2s linear infinite;
+                    }
+                `}
+            </style>
+            <div className="spinner"></div>
+          </>
       ) : (
         index
       )}
