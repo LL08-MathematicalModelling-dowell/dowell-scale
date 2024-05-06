@@ -5,6 +5,8 @@ interface NpxStapelProps {
     scale_id: string;
     axis_limit: number;
     buttonColor?: string;
+    scale_name: string;
+    no_of_responses: string;
 }
 declare const NpxStapel: React.FC<NpxStapelProps>;
 export { NpxStapel };

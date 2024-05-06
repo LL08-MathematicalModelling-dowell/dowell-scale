@@ -12,6 +12,8 @@ interface RatingScaleProps {
   scale_type: string;
   axis_limit?: number; 
   pointers?: number; 
+  scale_name: string;
+  no_of_responses: string; 
 }
 
 const RatingScale: React.FC<RatingScaleProps> = ({
@@ -21,15 +23,19 @@ const RatingScale: React.FC<RatingScaleProps> = ({
   buttonColor,
   scale_type,
   axis_limit,
-  pointers
+  pointers,
+  scale_name,
+  no_of_responses
 }) => {
 
 
   return (
     <div style={{
-      margin: '0 auto',
-      padding: '20px',
-      textAlign: 'center'
+      minHeight:"60px",
+      minWidth:"400px",
+      margin:"5px",
+      padding:"10px",
+      textAlign:"center"
     }}>
    
    {scale_type === 'nps' && (
@@ -38,6 +44,8 @@ const RatingScale: React.FC<RatingScaleProps> = ({
             username={username}
             scale_id={scale_id}
             buttonColor={buttonColor || ""}
+            scale_name={scale_name}
+            no_of_responses={no_of_responses}
           />
         )}
          {scale_type === 'nps_lite' && (
@@ -46,6 +54,8 @@ const RatingScale: React.FC<RatingScaleProps> = ({
             username={username}
             scale_id={scale_id}
             buttonColor={buttonColor || ""}
+            scale_name={scale_name}
+            no_of_responses={no_of_responses}
           />
         )}
          {scale_type === 'stapel' && (
@@ -55,6 +65,8 @@ const RatingScale: React.FC<RatingScaleProps> = ({
             scale_id={scale_id}
             buttonColor={buttonColor || ""}
             axis_limit={axis_limit || 0}
+            scale_name={scale_name}
+            no_of_responses={no_of_responses}
           />
         )}
          {scale_type === 'likert' && (
@@ -64,6 +76,8 @@ const RatingScale: React.FC<RatingScaleProps> = ({
             scale_id={scale_id}
             buttonColor={buttonColor || ""}
             pointers={pointers || 0}
+            scale_name={scale_name}
+            no_of_responses={no_of_responses}
           />
         )}
     </div>

@@ -7,6 +7,8 @@ interface RatingScaleProps {
     scale_type: string;
     axis_limit?: number;
     pointers?: number;
+    scale_name: string;
+    no_of_responses: string;
 }
 declare const RatingScale: React.FC<RatingScaleProps>;
 export { RatingScale };

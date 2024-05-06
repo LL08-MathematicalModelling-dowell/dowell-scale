@@ -5,6 +5,8 @@ interface NpxLikertProps {
     scale_id: string;
     pointers: number;
     buttonColor?: string;
+    scale_name: string;
+    no_of_responses: string;
 }
 declare const NpxLikert: React.FC<NpxLikertProps>;
 export { NpxLikert };

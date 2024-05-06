@@ -1,11 +1,13 @@
 import * as React from 'react';
 import { useState } from "react"
-
+import {sendRequest} from "../helper";
 interface NpxScaleProps {
   workspace_id: string;
   username: string;
   scale_id: string;
   buttonColor: string;
+  scale_name: string;
+  no_of_responses: string; 
 }
 
 const NpxScale: React.FC<NpxScaleProps> = (props) => {
@@ -16,18 +18,16 @@ const NpxScale: React.FC<NpxScaleProps> = (props) => {
 
   const handleButtonClick = async (index: number) => {
     setLoadingIndex(index);
-    try {
-      const response = await fetch(
-        `https://100035.pythonanywhere.com/addons/create-response/?workspace_id=${props.workspace_id}&username=${props.username}&scale_id=${props.scale_id}&item=${index}`
-      );
-      const data=await response.json()
-      console.log(data);
-      setResponseReceived(true);
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setLoadingIndex(null);
+    let obj={
+      workspace_id: props.workspace_id,
+      username:props.username,
+      scale_name:props.scale_name,
+      scale_type:"nps",
+      no_of_responses:props.no_of_responses,
+      setLoadingIndex,
+      setResponseReceived
     }
+  sendRequest(obj,index)
   }
 
   return (
