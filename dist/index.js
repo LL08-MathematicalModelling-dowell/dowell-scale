@@ -192,7 +192,7 @@ const NpxLikert = (props) => {
                 setButtonLinks(getButtonData(props.pointers));
         }
         return () => { window.removeEventListener("resize", listener); };
-    }, []);
+    }, [props.pointers]);
     getButtonData(props.pointers);
     const handleButtonClick = async (index) => {
         setLoadingIndex(index);
