@@ -1,12 +1,14 @@
 import * as React from 'react';
 import { useState, useMemo } from 'react';
-
+import {sendRequest} from "../helper";
 interface NpxStapelProps {
   workspace_id: string;
   username: string;
   scale_id: string;
   axis_limit: number;
   buttonColor?: string;
+  scale_name: string;
+  no_of_responses: string; 
 }
 
 const NpxStapel: React.FC<NpxStapelProps> = (props) => {
@@ -23,28 +25,39 @@ const NpxStapel: React.FC<NpxStapelProps> = (props) => {
     return result;
   }
 
-  const arr = useMemo(() => generateArray(props.axis_limit), [props.axis_limit]);
+  const buttonLinks = useMemo(() => generateArray(props.axis_limit), [props.axis_limit]);
 
   const handleButtonClick = async (index: number) => {
     setLoadingIndex(index);
-    try {
-      const response = await fetch(
-        `https://100035.pythonanywhere.com/addons/create-response/?workspace_id=${props.workspace_id}&username=${props.username}&scale_id=${props.scale_id}&item=${index}`
-      );
-      const data = await response.json();
-      console.log(data);
-      setResponseReceived(true);
-    } catch (error) {
-      console.error('Error:', error);
-    } finally {
-      setLoadingIndex(null);
+    let obj={
+      workspace_id: props.workspace_id,
+      username:props.username,
+      scale_name:props.scale_name,
+      scale_type:"stapel",
+      axis_limit:props.axis_limit,
+      no_of_responses:props.no_of_responses,
+      setLoadingIndex,
+      setResponseReceived
     }
+    console.log(index)
+    sendRequest(obj,index)
   }
 
   return (
-    <div>
+<div>
+      <h2 style={{ 
+        fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif",
+        fontSize: '1.5rem',
+        marginBottom: '10px',
+        marginTop:"10px",
+        textAlign: 'center',
+        fontWeight: 'normal'
+      }}>
+        On a scale of -{props.axis_limit} to {props.axis_limit}, how likely are you to recommend the product to a
+        friend or a colleague?
+      </h2>
       {responseReceived ? (
-        <div style={{
+        <div style={{ 
           marginTop: '20px',
           fontSize: '1.2rem',
           color: '#007bff',
@@ -54,55 +67,85 @@ const NpxStapel: React.FC<NpxStapelProps> = (props) => {
         </div>
       ) : (
         <>
-          <div style={{
-            marginTop: '5px',
-            width: "100%",
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            alignItems: "center",
-          }}>
+        <style scoped>
+        {`
+          .button-container {
+            height: 31px;
+          }
+  
+          @media (min-width: 768px) { 
+            .button-container {
+              height: 44px;
+            }
+          }
+        `}
+      </style>
+        <div style={{ 
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'center',
+          gap: '10px'
+        }} className='button-container'>
 
-            <div style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: "center",
-              backgroundColor: props.buttonColor || "orange",
-              gap: '10px',
-              width: "max-content",
-              padding: "10px",
-              borderRadius: "4px"
-            }} className='button-container'>
-              {arr.map((number) => (
-                <React.Fragment key={number}>
-                  <button
-                    style={{
-                      fontSize: '0.9rem',
-                      border: 'none',
-                      borderRadius: "50%",
-                      cursor: 'pointer',
-                      color: "orange",
-                      fontWeight: 600,
-                      transition: 'background-color 0.3s ease',
-                      ...(loadingIndex === number ? { pointerEvents: 'none', backgroundColor: '#0056b3' } : {}),
-                    }}
-                    className='button-changes'
-                    onClick={() => handleButtonClick(number)}
-                    disabled={loadingIndex === number}
-                  >
-                    {loadingIndex === number ? (
-                      <>
-                        <div className="spinner"></div>
-                      </>
-                    ) : (
-                      String(number)
-                    )}
-                  </button>
-                </React.Fragment>
-              ))}
-            </div>
-          </div>
+  {buttonLinks.map((index) => (
+  <React.Fragment key={index}>
+    <style scoped>
+      {`
+        .button-changes {
+          padding: 5px 10px;
+        }
+
+        @media (min-width: 768px) { 
+          .button-changes {
+            padding: 10px 20px;
+          }
+        }
+      `}
+    </style>
+    <button
+      style={{
+        fontSize: '0.9rem',
+        backgroundColor: props.buttonColor || "hsl(120, 70%, 60%)",
+        color: '#fff',
+        border: 'none',
+        borderRadius: '4px',
+        cursor: 'pointer',
+        transition: 'background-color 0.3s ease',
+        ...(loadingIndex === index ? { pointerEvents: 'none', backgroundColor: '#0056b3' } : {}),
+      }}
+      className='button-changes'
+      onClick={() => handleButtonClick(index)}
+      disabled={loadingIndex === index}
+    >
+      {loadingIndex === index ? (
+                 <>
+                <style scoped>
+                {`
+                    @keyframes spin {
+                        0% { transform: rotate(0deg); }
+                        100% { transform: rotate(360deg); }
+                    }
+            
+                    .spinner {
+                        border: 3px solid rgba(0, 0, 0, 0.1);
+                        border-top: 3px solid #007bff;
+                        border-radius: 50%;
+                        width: 12px;
+                        height: 12px;
+                        animation: spin 2s linear infinite;
+                    }
+                `}
+            </style>
+            <div className="spinner"></div>
+          </>
+      ) : (
+        index
+      )}
+    </button>
+  </React.Fragment>
+))}
+
+        </div>
         </>
       )}
     </div>
