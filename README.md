@@ -23,7 +23,7 @@ RatingScale accepts properties based on the scale types.
 
 we have 4 different scale types.
 
-1.nps scale type
+
 
 
 
