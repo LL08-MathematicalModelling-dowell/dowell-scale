@@ -43,7 +43,7 @@ useEffect(()=>{
   
  }
  return ()=>{window.removeEventListener("resize",listener)}
-},[])
+},[props.pointers])
 
 
   const data = getButtonData(props.pointers);
