@@ -6,7 +6,7 @@ DowellScale provides wide range of UI features based on scale types.
 
 ## Installation
 
-Install my-project with npm
+Install the package with npm
 
 ```bash
   npm install @dowelllabs/dowellscale
@@ -23,7 +23,7 @@ RatingScale accepts properties based on the scale types.
 
 we have 4 different scale types.
 
-1.nps scale type
+
 
 
 
@@ -114,3 +114,4 @@ If axis_limit is 5 then
 
 
 Note:-The "Number of responses" refers to the maximum number of responses that can be submitted. If this limit is exceeded, further responses will no longer be accepted.
+**If buttoncolor is not provided, the default color will be generated as shown above.
