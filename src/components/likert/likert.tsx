@@ -22,7 +22,7 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
       case 4: return ["😞 Strongly Disagree", "😔 Disagree", "😄 Agree", "😁 Strongly Agree"]
        case 5:return ["😞 Strongly Disagree", "😔 Disagree", "😔 Neutral", "😄 Agree", "😁 Strongly Agree"]
       case 7:return ["😞 Strongly Disagree", "😌 Somewhat Disgaree", "😔 Disagree", "😐 Neutral", "🙂 Somewhat Agree", "😄 Agree", "😁 Strongly Agree"]
-      case 9:return ["😁 ", "😃 ","😄 ","🙂 ", "😐 ", "😕", "😌 ", "😔 ", "😞 "]
+      case 9:return ["😞", "😔"," 😌"," 😕", "😐 ", "🙂", "😄 ", "😃 ", "😁 "]
       default: return []
     }
   }

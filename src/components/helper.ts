@@ -60,8 +60,8 @@ async function sendRequest(obj: any, index: number) {
 function handleMouseEnter(index: number, pointers: number, width: number, setText: Function) {
     let reviews: string[] = ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree",
         "Strongly Disagree", "somewhat Disgaree", "Disagree", "Neutral", "Somewhat Agree", "Agree", "Strongly Agree",
-        "Strongly Agree", "Agree", "Moderately Agree", "Mildly Agree", "Neither Agree nor Disagree", "Mildly Disagree",
-        "Moderately Disagree", "Disagree", "Strongly Disagree"
+        "Strongly Disagree", "Disagree ","Moderately Disagree","Mildly Disagree", "Neither Agree nor Disagree", "Mildly Agree", 
+        "Moderately Agree", "Agree", "Strongly Agree"
     ];
     if (width < 968 && pointers == 7)
         setText(reviews[index + 5]);

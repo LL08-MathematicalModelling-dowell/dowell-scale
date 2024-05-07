@@ -62,8 +62,8 @@ async function sendRequest(obj, index) {
 function handleMouseEnter(index, pointers, width, setText) {
     let reviews = ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree",
         "Strongly Disagree", "somewhat Disgaree", "Disagree", "Neutral", "Somewhat Agree", "Agree", "Strongly Agree",
-        "Strongly Agree", "Agree", "Moderately Agree", "Mildly Agree", "Neither Agree nor Disagree", "Mildly Disagree",
-        "Moderately Disagree", "Disagree", "Strongly Disagree"
+        "Strongly Disagree", "Disagree ", "Moderately Disagree", "Mildly Disagree", "Neither Agree nor Disagree", "Mildly Agree",
+        "Moderately Agree", "Agree", "Strongly Agree"
     ];
     if (width < 968 && pointers == 7)
         setText(reviews[index + 5]);
@@ -169,7 +169,7 @@ const NpxLikert = (props) => {
             case 4: return ["😞 Strongly Disagree", "😔 Disagree", "😄 Agree", "😁 Strongly Agree"];
             case 5: return ["😞 Strongly Disagree", "😔 Disagree", "😔 Neutral", "😄 Agree", "😁 Strongly Agree"];
             case 7: return ["😞 Strongly Disagree", "😌 Somewhat Disgaree", "😔 Disagree", "😐 Neutral", "🙂 Somewhat Agree", "😄 Agree", "😁 Strongly Agree"];
-            case 9: return ["😁 ", "😃 ", "😄 ", "🙂 ", "😐 ", "😕", "😌 ", "😔 ", "😞 "];
+            case 9: return ["😞", "😔", " 😌", " 😕", "😐 ", "🙂", "😄 ", "😃 ", "😁 "];
             default: return [];
         }
     };
