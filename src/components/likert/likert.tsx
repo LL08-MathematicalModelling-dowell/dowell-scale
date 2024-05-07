@@ -40,13 +40,16 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
     
    },[props.pointers])
 
-useEffect(()=>{
-  handleResize()
- const listener:any=window.addEventListener("resize",handleResize)
- return(()=>{
-  window.removeEventListener("resize",listener)
- })
-},[handleResize])
+   useEffect(()=>{
+    
+    handleResize()
+  window.addEventListener("resize",handleResize)
+   return(()=>{
+    window.removeEventListener("resize",handleResize)
+   })
+
+  },[props.pointers])
+
 
 
   const handleButtonClick = async (index: number) => {
