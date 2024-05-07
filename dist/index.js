@@ -36,10 +36,12 @@ async function sendRequest(obj, index) {
         if (data.urls && data.urls.length > 0) {
             const instanceURL = data.urls[0].urls[0].instance_urls;
             if (obj.axis_limit) {
-                if (obj.axis_limit > 0)
+                if (index > 0) {
                     index += 4;
-                else
+                }
+                else {
                     index += 5;
+                }
             }
             const res = await fetch(instanceURL[index]);
             console.log(await res.json());
