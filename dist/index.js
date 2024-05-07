@@ -1,8 +1,7 @@
 import * as React from 'react';
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useCallback, useEffect, useMemo } from 'react';
 
 async function sendRequest(obj, index) {
-    console.log(obj);
     try {
         let requestOptions = {
             method: "POST",
@@ -32,19 +31,16 @@ async function sendRequest(obj, index) {
                 "no_of_responses": obj.no_of_responses
             })
         };
-        console.log(requestOptions);
         const response = await fetch(`https://100035.pythonanywhere.com/addons/create-scale/v3/`, requestOptions);
         const data = await response.json();
         if (data.urls && data.urls.length > 0) {
             const instanceURL = data.urls[0].urls[0].instance_urls;
-            console.log(instanceURL);
             if (obj.axis_limit) {
                 if (obj.axis_limit > 0)
                     index += 4;
                 else
                     index += 5;
             }
-            console.log(index);
             const res = await fetch(instanceURL[index]);
             console.log(await res.json());
             obj.setResponseReceived(true);
@@ -62,7 +58,6 @@ async function sendRequest(obj, index) {
     return null;
 }
 function handleMouseEnter(index, pointers, width, setText) {
-    console.log(index, pointers, width);
     let reviews = ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree",
         "Strongly Disagree", "somewhat Disgaree", "Disagree", "Neutral", "Somewhat Agree", "Agree", "Strongly Agree",
         "Strongly Agree", "Agree", "Moderately Agree", "Mildly Agree", "Neither Agree nor Disagree", "Mildly Disagree",
@@ -180,20 +175,21 @@ const NpxLikert = (props) => {
     const [responseReceived, setResponseReceived] = useState(false);
     const [buttonLinks, setButtonLinks] = useState(getButtonData(props.pointers));
     const [text, setText] = useState("");
+    const handleResize = useCallback(() => {
+        if (props.pointers == 7 && window.innerWidth < 968)
+            setButtonLinks(["😞  ", "😌  ", "😔 ", "😐 ", "🙂  ", "😄 ", "😁  "]);
+        else if (props.pointers == 5 && window.innerWidth < 670)
+            setButtonLinks(["😞", "😔 ", "😐 ", "😄 ", "😁 "]);
+        else
+            setButtonLinks(getButtonData(props.pointers));
+    }, [props.pointers]);
     useEffect(() => {
         handleResize();
         const listener = window.addEventListener("resize", handleResize);
-        function handleResize() {
-            if (props.pointers == 7 && window.innerWidth < 968)
-                setButtonLinks(["😞  ", "😌  ", "😔 ", "😐 ", "🙂  ", "😄 ", "😁  "]);
-            else if (props.pointers == 5 && window.innerWidth < 670)
-                setButtonLinks(["😞", "😔 ", "😐 ", "😄 ", "😁 "]);
-            else
-                setButtonLinks(getButtonData(props.pointers));
-        }
-        return () => { window.removeEventListener("resize", listener); };
-    }, [props.pointers]);
-    getButtonData(props.pointers);
+        return (() => {
+            window.removeEventListener("resize", listener);
+        });
+    }, [handleResize]);
     const handleButtonClick = async (index) => {
         setLoadingIndex(index);
         let obj = {
@@ -237,8 +233,9 @@ const NpxLikert = (props) => {
           `)),
         props.pointers == 9 && (React.createElement("style", { scoped: true }, `
            .button-changes {
-            padding: 5px;
-            font-size: 1.25rem;
+            padding:3px;
+            font-size: 1rem;
+            box-sizing: border-box;
             }
 
             @media (min-width: 560px) { 
@@ -464,7 +461,6 @@ const NpxStapel = (props) => {
             setLoadingIndex,
             setResponseReceived
         };
-        console.log(index);
         sendRequest(obj, index);
     };
     return (React.createElement("div", null,

@@ -39,7 +39,6 @@ const NpxStapel: React.FC<NpxStapelProps> = (props) => {
       setLoadingIndex,
       setResponseReceived
     }
-    console.log(index)
     sendRequest(obj,index)
   }
 
