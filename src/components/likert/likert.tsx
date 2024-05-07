@@ -1,4 +1,4 @@
-import { useState,useEffect } from 'react';
+import { useState,useEffect,useCallback } from 'react';
 import * as React from 'react';
 import {sendRequest,handleMouseEnter} from "../helper";
 
@@ -31,22 +31,23 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
   const[buttonLinks,setButtonLinks]=useState<string[]>(getButtonData(props.pointers))
   const[text,setText]=useState<string>("")
   
+  const handleResize=useCallback(()=>{
+    if(props.pointers==7 && window.innerWidth<968)
+      setButtonLinks(["😞  ", "😌  ", "😔 ", "😐 ", "🙂  ", "😄 ", "😁  "])
+    else if(props.pointers==5 && window.innerWidth<670)
+      setButtonLinks(["😞", "😔 ", "😐 ", "😄 ", "😁 "])
+      else setButtonLinks(getButtonData(props.pointers))
+    
+   },[props.pointers])
+
 useEffect(()=>{
   handleResize()
  const listener:any=window.addEventListener("resize",handleResize)
- function handleResize(){
-  if(props.pointers==7 && window.innerWidth<968)
-    setButtonLinks(["😞  ", "😌  ", "😔 ", "😐 ", "🙂  ", "😄 ", "😁  "])
-  else if(props.pointers==5 && window.innerWidth<670)
-    setButtonLinks(["😞", "😔 ", "😐 ", "😄 ", "😁 "])
-    else setButtonLinks(getButtonData(props.pointers))
-  
- }
- return ()=>{window.removeEventListener("resize",listener)}
-},[props.pointers])
+ return(()=>{
+  window.removeEventListener("resize",listener)
+ })
+},[handleResize])
 
-
-  const data = getButtonData(props.pointers);
 
   const handleButtonClick = async (index: number) => {
     setLoadingIndex(index);
@@ -105,8 +106,9 @@ useEffect(()=>{
           <style scoped>
           {`
            .button-changes {
-            padding: 5px;
-            font-size: 1.25rem;
+            padding:3px;
+            font-size: 1rem;
+            box-sizing: border-box;
             }
 
             @media (min-width: 560px) { 
