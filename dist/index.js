@@ -187,11 +187,11 @@ const NpxLikert = (props) => {
     }, [props.pointers]);
     useEffect(() => {
         handleResize();
-        const listener = window.addEventListener("resize", handleResize);
+        window.addEventListener("resize", handleResize);
         return (() => {
-            window.removeEventListener("resize", listener);
+            window.removeEventListener("resize", handleResize);
         });
-    }, [handleResize]);
+    }, [props.pointers]);
     const handleButtonClick = async (index) => {
         setLoadingIndex(index);
         let obj = {
