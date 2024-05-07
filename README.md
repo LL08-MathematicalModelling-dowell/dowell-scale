@@ -114,3 +114,4 @@ If axis_limit is 5 then
 
 
 Note:-The "Number of responses" refers to the maximum number of responses that can be submitted. If this limit is exceeded, further responses will no longer be accepted.
+**If buttoncolor is not provided, the default color will be generated as shown above.
