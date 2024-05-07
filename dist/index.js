@@ -335,8 +335,8 @@ const NpxLikert = (props) => {
                       border: 3px solid rgba(0, 0, 0, 0.1);
                       border-top: 3px solid #007bff;
                       border-radius: 50%;
-                      width: 12px;
-                      height: 12px;
+                      width: 24px;
+                      height: 24px;
                       animation: spin 2s linear infinite;
                   }
               `),
