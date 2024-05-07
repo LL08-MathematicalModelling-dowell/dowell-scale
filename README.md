@@ -68,12 +68,14 @@ This scale provides three buttons as shown.
          no_of_responses= no_of_responses you need
          buttonColor=buttonColor of your choice
          scale_type="likert"
-         pointers={3} or {4} or {5} or {7} or {9}
+         pointers={2} or {3} or {4} or {5} or {7} or {9}
         />
 
 likert scale type accepts an extra property named pointers which is of type number.
 
 Buttons will be dynamically displayed based on the data inside the pointers
+2 pointers:-
+![App Screenshot](https://github.com/LL08-MathematicalModelling-dowell/dowell-scale/assets/127480764/d19b4189-23e3-4060-a08f-eaefafc7aea5)
 
 3 pointers:-
 ![App Screenshot](https://github.com/LL08-MathematicalModelling-dowell/dowell-scale/assets/127480764/d29aa7bc-c140-4184-8653-49b135227d42)
