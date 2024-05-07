@@ -74,6 +74,7 @@ This scale provides three buttons as shown.
 likert scale type accepts an extra property named pointers which is of type number.
 
 Buttons will be dynamically displayed based on the data inside the pointers
+
 2 pointers:-
 ![App Screenshot](https://github.com/LL08-MathematicalModelling-dowell/dowell-scale/assets/127480764/d19b4189-23e3-4060-a08f-eaefafc7aea5)
 
