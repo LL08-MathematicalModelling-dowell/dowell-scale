@@ -6,7 +6,7 @@ DowellScale provides wide range of UI features based on scale types.
 
 ## Installation
 
-Install my-project with npm
+Install the package with npm
 
 ```bash
   npm install @dowelllabs/dowellscale
