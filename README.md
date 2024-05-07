@@ -6,7 +6,7 @@ DowellScale provides wide range of UI features based on scale types.
 
 ## Installation
 
-Install my-project with npm
+Install the package with npm
 
 ```bash
   npm install @dowelllabs/dowellscale
@@ -23,7 +23,7 @@ RatingScale accepts properties based on the scale types.
 
 we have 4 different scale types.
 
-1.nps scale type
+
 
 
 
@@ -68,12 +68,15 @@ This scale provides three buttons as shown.
          no_of_responses= no_of_responses you need
          buttonColor=buttonColor of your choice
          scale_type="likert"
-         pointers={3} or {4} or {5} or {7} or {9}
+         pointers={2} or {3} or {4} or {5} or {7} or {9}
         />
 
 likert scale type accepts an extra property named pointers which is of type number.
 
 Buttons will be dynamically displayed based on the data inside the pointers
+
+2 pointers:-
+![App Screenshot](https://github.com/LL08-MathematicalModelling-dowell/dowell-scale/assets/127480764/d19b4189-23e3-4060-a08f-eaefafc7aea5)
 
 3 pointers:-
 ![App Screenshot](https://github.com/LL08-MathematicalModelling-dowell/dowell-scale/assets/127480764/d29aa7bc-c140-4184-8653-49b135227d42)
@@ -114,3 +117,4 @@ If axis_limit is 5 then
 
 
 Note:-The "Number of responses" refers to the maximum number of responses that can be submitted. If this limit is exceeded, further responses will no longer be accepted.
+**If buttoncolor is not provided, the default color will be generated as shown above.
