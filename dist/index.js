@@ -105,7 +105,7 @@ const NpxScale = (props) => {
                 color: '#007bff',
                 textAlign: 'center'
             } }, "Thanks for your response!")) : (React.createElement(React.Fragment, null,
-            React.createElement("style", { scoped: true }, `
+            React.createElement("style", null, `
           .button-container {
             height: 31px;
           }
@@ -122,7 +122,7 @@ const NpxScale = (props) => {
                     justifyContent: 'center',
                     gap: '10px'
                 }, className: 'button-container' }, buttonLinks.map((index) => (React.createElement(React.Fragment, { key: index },
-                React.createElement("style", { scoped: true }, `
+                React.createElement("style", null, `
         .button-changes {
           padding: 5px 10px;
         }
@@ -143,7 +143,7 @@ const NpxScale = (props) => {
                         transition: 'background-color 0.3s ease',
                         ...(loadingIndex === index ? { pointerEvents: 'none', backgroundColor: '#0056b3' } : {}),
                     }, className: 'button-changes', onClick: () => handleButtonClick(index), disabled: loadingIndex === index }, loadingIndex === index ? (React.createElement(React.Fragment, null,
-                    React.createElement("style", { scoped: true }, `
+                    React.createElement("style", null, `
                     @keyframes spin {
                         0% { transform: rotate(0deg); }
                         100% { transform: rotate(360deg); }
@@ -212,7 +212,7 @@ const NpxLikert = (props) => {
             color: '#007bff',
             textAlign: 'center'
         } }, "Thanks for your response!")) : (React.createElement(React.Fragment, null,
-        props.pointers == 5 && (React.createElement("style", { scoped: true }, `
+        props.pointers == 5 && (React.createElement("style", null, `
 
            .button-changes {
             padding: 10px 10px;
@@ -233,7 +233,7 @@ const NpxLikert = (props) => {
               }
               }
           `)),
-        props.pointers == 9 && (React.createElement("style", { scoped: true }, `
+        props.pointers == 9 && (React.createElement("style", null, `
            .button-changes {
             padding:3px;
             font-size: 1rem;
@@ -254,7 +254,7 @@ const NpxLikert = (props) => {
               }
               }
           `)),
-        props.pointers == 7 && (React.createElement("style", { scoped: true }, `
+        props.pointers == 7 && (React.createElement("style", null, `
               .button-changes {
                 padding: 5px 5px;
                 font-size:1.5rem;
@@ -286,7 +286,7 @@ const NpxLikert = (props) => {
                   }
               `)),
         props.pointers <= 4 &&
-            (React.createElement("style", { scoped: true }, `
+            (React.createElement("style", null, `
                   .button-changes {
                   padding: 5px 10px;
               
@@ -324,7 +324,7 @@ const NpxLikert = (props) => {
                             transition: 'background-color 0.3s ease',
                             ...(loadingIndex === index ? { pointerEvents: 'none', backgroundColor: '#0056b3' } : {}),
                         }, onClick: () => handleButtonClick(index), onMouseEnter: () => handleMouseEnter(index, props.pointers, window.innerWidth, setText), onMouseLeave: () => { setText(''); }, disabled: loadingIndex === index, className: 'button-changes' }, loadingIndex === index ? (React.createElement(React.Fragment, null,
-                        React.createElement("style", { scoped: true }, `
+                        React.createElement("style", null, `
                   @keyframes spin {
                       0% { transform: rotate(0deg); }
                       100% { transform: rotate(360deg); }
@@ -344,8 +344,8 @@ const NpxLikert = (props) => {
             text.length > 0 &&
                 React.createElement("p", { style: {
                         position: 'absolute',
-                        top: '30px',
-                        color: 'green',
+                        top: '10px',
+                        color: 'red',
                         padding: '10px',
                         borderRadius: '5px',
                     } }, text))))));
@@ -391,7 +391,7 @@ const NpxLite = (props) => {
                     gap: '10px',
                 }, className: "button-container" }, data.map((review, index) => {
                 return (React.createElement(React.Fragment, { key: index },
-                    React.createElement("style", { scoped: true }, `
+                    React.createElement("style", null, `
                       .button-changes {
                         padding: 5px 10px;
                       }
@@ -420,7 +420,7 @@ const NpxLite = (props) => {
                                 }
                                 : {}),
                         }, onClick: () => handleButtonClick(index), disabled: loadingIndex === index, className: "button-changes" }, loadingIndex === index ? (React.createElement(React.Fragment, null,
-                        React.createElement("style", { scoped: true }, `
+                        React.createElement("style", null, `
                             @keyframes spin {
                               0% { transform: rotate(0deg); }
                               100% { transform: rotate(360deg); }
@@ -485,7 +485,7 @@ const NpxStapel = (props) => {
                 color: '#007bff',
                 textAlign: 'center'
             } }, "Thanks for your response!")) : (React.createElement(React.Fragment, null,
-            React.createElement("style", { scoped: true }, `
+            React.createElement("style", null, `
           .button-container {
             height: 31px;
           }
@@ -502,7 +502,7 @@ const NpxStapel = (props) => {
                     justifyContent: 'center',
                     gap: '10px'
                 }, className: 'button-container' }, buttonLinks.map((index) => (React.createElement(React.Fragment, { key: index },
-                React.createElement("style", { scoped: true }, `
+                React.createElement("style", null, `
         .button-changes {
           padding: 5px 10px;
         }
@@ -523,7 +523,7 @@ const NpxStapel = (props) => {
                         transition: 'background-color 0.3s ease',
                         ...(loadingIndex === index ? { pointerEvents: 'none', backgroundColor: '#0056b3' } : {}),
                     }, className: 'button-changes', onClick: () => handleButtonClick(index), disabled: loadingIndex === index }, loadingIndex === index ? (React.createElement(React.Fragment, null,
-                    React.createElement("style", { scoped: true }, `
+                    React.createElement("style", null, `
                     @keyframes spin {
                         0% { transform: rotate(0deg); }
                         100% { transform: rotate(360deg); }

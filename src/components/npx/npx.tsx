@@ -53,7 +53,7 @@ const NpxScale: React.FC<NpxScaleProps> = (props) => {
         </div>
       ) : (
         <>
-        <style scoped>
+        <style >
         {`
           .button-container {
             height: 31px;
@@ -75,7 +75,7 @@ const NpxScale: React.FC<NpxScaleProps> = (props) => {
 
   {buttonLinks.map((index) => (
   <React.Fragment key={index}>
-    <style scoped>
+    <style >
       {`
         .button-changes {
           padding: 5px 10px;
@@ -105,7 +105,7 @@ const NpxScale: React.FC<NpxScaleProps> = (props) => {
     >
        {loadingIndex === index ? (
                  <>
-                <style scoped>
+                <style >
                 {`
                     @keyframes spin {
                         0% { transform: rotate(0deg); }

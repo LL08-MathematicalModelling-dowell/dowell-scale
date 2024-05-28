@@ -81,7 +81,7 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
     ) : (
       <>
       {props.pointers==5 && (
-          <style scoped>
+          <style >
           {`
 
            .button-changes {
@@ -106,7 +106,7 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
       </style>
       )}
       {props.pointers==9 && (
-          <style scoped>
+          <style >
           {`
            .button-changes {
             padding:3px;
@@ -131,7 +131,7 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
       </style>
       )}
        {props.pointers==7 &&(
-      <style scoped>
+      <style >
               {`
               .button-changes {
                 padding: 5px 5px;
@@ -168,7 +168,7 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
 
             {props.pointers<=4 &&
             (
-              <style scoped>
+              <style >
               {`
                   .button-changes {
                   padding: 5px 10px;
@@ -221,7 +221,7 @@ const NpxLikert: React.FC<NpxLikertProps> = (props) => {
               className='button-changes'>
            {loadingIndex === index ? (
                <>
-              <style scoped>
+              <style >
               {`
                   @keyframes spin {
                       0% { transform: rotate(0deg); }
