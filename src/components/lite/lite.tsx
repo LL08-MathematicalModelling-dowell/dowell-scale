@@ -69,7 +69,7 @@ const NpxLite: React.FC<NpxLiteProps> = (props) => {
             {data.map((review, index) => {
               return (
                 <React.Fragment key={index}>
-                  <style scoped>
+                  <style >
                     {`
                       .button-changes {
                         padding: 5px 10px;
@@ -110,7 +110,7 @@ const NpxLite: React.FC<NpxLiteProps> = (props) => {
                   >
                     {loadingIndex === index ? (
                       <>
-                        <style scoped>
+                        <style >
                           {`
                             @keyframes spin {
                               0% { transform: rotate(0deg); }

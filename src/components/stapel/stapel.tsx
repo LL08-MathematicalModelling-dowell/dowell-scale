@@ -66,7 +66,7 @@ const NpxStapel: React.FC<NpxStapelProps> = (props) => {
         </div>
       ) : (
         <>
-        <style scoped>
+        <style >
         {`
           .button-container {
             height: 31px;
@@ -88,7 +88,7 @@ const NpxStapel: React.FC<NpxStapelProps> = (props) => {
 
   {buttonLinks.map((index) => (
   <React.Fragment key={index}>
-    <style scoped>
+    <style >
       {`
         .button-changes {
           padding: 5px 10px;
@@ -118,7 +118,7 @@ const NpxStapel: React.FC<NpxStapelProps> = (props) => {
     >
       {loadingIndex === index ? (
                  <>
-                <style scoped>
+                <style >
                 {`
                     @keyframes spin {
                         0% { transform: rotate(0deg); }
